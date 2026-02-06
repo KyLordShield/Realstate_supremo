@@ -180,7 +180,7 @@ nav ul li a:hover {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background-image: url('../images/hero-image.png');
+    background-image: url('../images/hero-image-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
