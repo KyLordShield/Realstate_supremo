@@ -9,7 +9,6 @@
     <style>
         body {
             font-family: 'Inria Serif', serif;
-
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
@@ -97,7 +96,7 @@
         }
         .hero-single img {
             width: 100%;
-            max-width: 900px;           /* ← increased size */
+            max-width: 900px;
             height: auto;
             border-radius: 14px;
             box-shadow: 0 10px 32px rgba(0,0,0,0.15);
@@ -134,7 +133,7 @@
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;          /* helps fill the space nicely */
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
         .gallery-item:hover img {
@@ -181,83 +180,217 @@
             box-shadow: 0 14px 32px rgba(45,106,79,0.35);
         }
 
-        /* Modal */
+        .home-btn {
+            background: #BDE8F5;
+            color: rgb(14, 12, 12);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(80, 142, 161, 0.3);
+        }
+
+        .home-btn:hover {
+            background: #3d6f82;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(80, 142, 161, 0.4);
+        }
+
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 10000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.65);
-            justify-content: center;
+            background-color: rgba(0,0,0,0.7);
             align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
         }
+
+        .modal.active {
+            display: flex;
+        }
+
         .modal-content {
             background: white;
-            padding: 35px;
-            border-radius: 14px;
+            padding: 0;
+            border-radius: 15px;
+            max-width: 500px;
             width: 90%;
-            max-width: 440px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-            text-align: center;
-            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         .modal-header {
-            font-size: 1.6em;
-            margin-bottom: 30px;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 15px 15px 0 0;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .contact-item {
-            background: #f0f9f4;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 16px 0;
-            font-size: 1.15em;
+
+        .close-modal {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
+            transition: background 0.3s;
         }
-        .contact-item i {
-            font-size: 1.8em;
-            color: #2d6a4f;
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.3);
         }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 36px;
-            color: #aaa;
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
             cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
         }
-        .close:hover {
+
+        .contact-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .contact-item-icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-item-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+
+        .contact-item-content {
+            flex: 1;
+        }
+
+        .contact-item-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .contact-item-value {
+            font-size: 15px;
             color: #333;
+            font-weight: 500;
         }
 
-        .home-btn {
-      background: #BDE8F5;
-      color: rgb(14, 12, 12);
-      border: none;
-      padding: 12px 30px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(80, 142, 161, 0.3);
-    }
+        /* Form Input Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    .home-btn:hover {
-      background: #3d6f82;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(80, 142, 161, 0.4);
-    }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
 
         @media (max-width: 900px) {
             .hero-single img {
@@ -356,7 +489,7 @@
 
         <!-- Enquire Button -->
         <div class="enquire-btn-container">
-            <button class="enquire-btn" onclick="openModal()">INQUIRE NOW</button>
+            <button class="enquire-btn" onclick="openModal('contactModal')">INQUIRE NOW</button>
         </div>
 
     </div>
@@ -364,31 +497,123 @@
     <!-- Contact Modal -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">×</span>
-            <div class="modal-header">Get in Touch</div>
-
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <strong>Email</strong><br>
-                    <a href="mailto:email@gmail.com">email@gmail.com</a>
-                </div>
+            <div class="modal-header">
+                <span>Get in Touch</span>
+                <button class="close-modal" onclick="closeModal('contactModal')">×</button>
             </div>
+            <div class="modal-body">
 
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <strong>Contact No.</strong><br>
-                    09999999999
-                </div>
+                <!-- Facebook Page -->
+                <a href="https://web.facebook.com/profile.php?id=61587387836258" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.14 8.44 9.88v-6.98H8v-2.9h2.44V9.85c0-2.42 1.44-3.74 3.58-3.74 1.04 0 2.13.19 2.13.19v2.34h-1.2c-1.18 0-1.55.73-1.55 1.48v1.78H16l-.38 2.9h-2.31v6.98C18.34 21.14 22 16.99 22 12z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-item-content">
+                        <div class="contact-item-label">Facebook</div>
+                        <div class="contact-item-value">Vista Land Cebu by APC Supremo</div>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="#" 
+                    onclick="openEmailForm(event)" 
+                    class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-item-content">
+                        <div class="contact-item-label">Email</div>
+                        <div class="contact-item-value">vistalandcebu@gmail.com</div>
+                    </div>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+639948273480" class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-item-content">
+                        <div class="contact-item-label">Contact No.</div>
+                        <div class="contact-item-value">0994 827 3480</div>
+                    </div>
+                </a>
+
+                <!-- Messenger -->
+                <a href="https://www.facebook.com/messages/t/61587387836258" 
+                    target="_blank" 
+                    class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-item-content">
+                        <div class="contact-item-label">Messenger</div>
+                        <div class="contact-item-value">Vista Land Cebu by APC Supremo</div>
+                    </div>
+                </a>
+
             </div>
+        </div>
+    </div>
 
-            <div class="contact-item">
-                <i class="fab fa-facebook-messenger"></i>
-                <div>
-                    <strong>Messenger</strong><br>
-                    Supremo Vince
-                </div>
+    <!-- Email Form Modal -->
+    <div id="emailFormModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Send Us An Email</span>
+                <button class="close-modal" onclick="closeModal('emailFormModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="emailInquiryForm">
+                    
+                    <!-- Auto-filled Property (Hidden for JB Suarez) -->
+                    <input type="hidden" id="propertyType" value="JB Suarez (116 Suarez) Condominium">
+
+                    <!-- Client Name -->
+                    <div class="form-group">
+                        <label>
+                            Your Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="clientName" placeholder="Juan Dela Cruz" required>
+                    </div>
+
+                    <!-- Client Phone -->
+                    <div class="form-group">
+                        <label>
+                            Phone Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="clientPhone" placeholder="0999 123 4567" required>
+                    </div>
+
+                    <!-- Client Email -->
+                    <div class="form-group">
+                        <label>
+                            Your Email <span class="required">*</span>
+                        </label>
+                        <input type="email" id="clientEmail" placeholder="juandelacruz@gmail.com" required>
+                    </div>
+
+                    <!-- Additional Message -->
+                    <div class="form-group">
+                        <label>
+                            Additional Message (Optional)
+                        </label>
+                        <textarea id="clientMessage" placeholder="Any specific questions or requirements?"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">Send Email</button>
+                </form>
             </div>
         </div>
     </div>
@@ -411,23 +636,89 @@
             observer.observe(el);
         });
 
-        function openModal() {
-            document.getElementById('contactModal').style.display = 'flex';
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            document.getElementById('contactModal').style.display = 'none';
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
+        function openEmailForm(e) {
+            e.preventDefault();
+            closeModal('contactModal');
+            openModal('emailFormModal');
+        }
+
+        // Click outside modal to close
         window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         };
 
+        // Handle Email Form Submission
+        document.getElementById('emailInquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const propertyType = 'JB Suarez (116 Suarez) Condominium';
+            const clientName = document.getElementById('clientName').value;
+            const clientPhone = document.getElementById('clientPhone').value;
+            const clientEmail = document.getElementById('clientEmail').value;
+            const clientMessage = document.getElementById('clientMessage').value;
+            
+            // Build email subject and body
+            const subject = `Property Inquiry: ${propertyType}`;
+            const body = `Good day!
+
+I am interested in your ${propertyType} property.
+
+CLIENT INFORMATION:
+Name: ${clientName}
+Email: ${clientEmail}
+Phone: ${clientPhone}
+
+${clientMessage ? `MESSAGE:\n${clientMessage}\n` : ''}
+I would appreciate it if you could provide me with more details about this property, including pricing, payment terms, and availability.
+
+Looking forward to your response.
+
+Best regards,
+${clientName}`;
+
+            // Open email based on device
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const email = 'vistalandcebu@gmail.com';
+            
+            if (!isMobile) {
+                // Desktop: Open Gmail in new tab
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.open(gmailUrl, '_blank');
+            } else {
+                // Mobile: Use mailto
+                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            }
+            
+            // Close modal and reset form
+            closeModal('emailFormModal');
+            document.getElementById('emailInquiryForm').reset();
+        });
+
         window.addEventListener('scroll', () => {
             document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
         });
     </script>
 

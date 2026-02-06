@@ -596,15 +596,20 @@
       align-items: center;
     }
 
+    .modal.active {
+      display: flex;
+    }
+
     .modal-content {
       background-color: #ffffff;
-      padding: 30px;
+      padding: 0;
       border-radius: 12px;
       width: 90%;
-      max-width: 420px;
+      max-width: 500px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      text-align: center;
       animation: modalSlideIn 0.4s ease-out;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     @keyframes modalSlideIn {
@@ -619,57 +624,97 @@
     }
 
     .modal-header {
-      font-size: 1.5em;
-      margin-bottom: 25px;
-      color: #333;
-      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .close-modal:hover {
+      transform: scale(1.2);
+    }
+
+    .modal-body {
+      padding: 30px;
     }
 
     .contact-item {
-      background: #e9f7ff;
+      background: #f8f9fa;
       border-radius: 10px;
       padding: 18px;
       margin: 15px 0;
-      font-size: 1.1em;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
       gap: 15px;
-      text-align: left;
+      text-decoration: none;
+      color: #333;
       transition: all 0.3s ease;
       cursor: pointer;
+      border: 2px solid transparent;
     }
 
     .contact-item:hover {
-      background: #d0ecff;
+      background: #e9ecef;
+      border-color: #667eea;
       transform: translateX(5px);
     }
 
-    .contact-item i {
-      font-size: 1.6em;
-      color: #007bff;
+    .contact-item-icon {
+      flex-shrink: 0;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .contact-item a {
-      color: #007bff;
-      text-decoration: none;
+    .contact-item-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
     }
 
-    .contact-item a:hover {
-      text-decoration: underline;
+    .contact-item-content {
+      flex: 1;
+      text-align: left;
     }
 
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 32px;
-      font-weight: bold;
-      cursor: pointer;
-      line-height: 20px;
+    .contact-item-label {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 3px;
+      font-weight: 600;
     }
 
-    .close:hover {
+    .contact-item-value {
+      font-size: 1rem;
       color: #333;
+      font-weight: 500;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -741,6 +786,15 @@
 
       .notice-content {
         flex-direction: column;
+      }
+
+      .modal-content {
+        width: 95%;
+        max-width: 95%;
+      }
+
+      .modal-body {
+        padding: 20px;
       }
     }
   </style>
@@ -947,66 +1001,160 @@
         and complete details from our professional team. Various lot sizes and locations<br>
         are available beyond what's shown here. Schedule your site visit today!
       </p>
-      <button class="btn" onclick="openModal()">
+      <button class="btn" onclick="openModal('contactModal')">
         INQUIRE NOW <i class="fas fa-arrow-right"></i>
       </button>
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- CONTACT MODAL -->
   <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div class="modal-header">Get in Touch</div>
+      <div class="modal-content">
+          <div class="modal-header">
+              <h2>Get in Touch</h2>
+              <button class="close-modal" onclick="closeModal('contactModal')">×</button>
+          </div>
+          <div class="modal-body">
 
-      <div class="contact-item" onclick="window.location.href='mailto:supremo@email.com'">
-        <i class="fas fa-envelope"></i>
-        <div>
-          <strong>Email</strong><br>
-          <a href="mailto:supremo@email.com">supremo@email.com</a>
-        </div>
-      </div>
+              <!-- Facebook Page -->
+              <a href="https://web.facebook.com/profile.php?id=61587387836258" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="contact-item">
+                      <div class="contact-item-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.14 8.44 9.88v-6.98H8v-2.9h2.44V9.85c0-2.42 1.44-3.74 3.58-3.74 1.04 0 2.13.19 2.13.19v2.34h-1.2c-1.18 0-1.55.73-1.55 1.48v1.78H16l-.38 2.9h-2.31v6.98C18.34 21.14 22 16.99 22 12z"/>
+                          </svg>
+                      </div>
+                      <div class="contact-item-content">
+                          <div class="contact-item-label">Facebook</div>
+                          <div class="contact-item-value">Vista Land Cebu by APC Supremo</div>
+                      </div>
+                  </a>
 
-      <div class="contact-item" onclick="window.location.href='tel:09999999999'">
-        <i class="fas fa-phone-alt"></i>
-        <div>
-          <strong>Contact No.</strong><br>
-          <a href="tel:09999999999">09999999999</a>
-        </div>
-      </div>
+              <!-- Email -->
+              <a href="#" 
+                  onclick="openEmailForm(event)" 
+                  class="contact-item">
+                      <div class="contact-item-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                          </svg>
+                      </div>
+                      <div class="contact-item-content">
+                          <div class="contact-item-label">Email</div>
+                          <div class="contact-item-value">vistalandcebu@gmail.com</div>
+                      </div>
+                  </a>
 
-      <div class="contact-item" onclick="window.open('https://m.me/supremovince', '_blank')">
-        <i class="fab fa-facebook-messenger"></i>
-        <div>
-          <strong>Messenger</strong><br>
-          <a href="https://m.me/supremovince" target="_blank">Supremo Vince</a>
-        </div>
+              <!-- Phone -->
+              <a href="tel:+639948273480" class="contact-item">
+                  <div class="contact-item-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                  </div>
+                  <div class="contact-item-content">
+                      <div class="contact-item-label">Contact No.</div>
+                      <div class="contact-item-value">0994 827 3480</div>
+                  </div>
+              </a>
+
+              <!-- Messenger -->
+              <a href="https://www.facebook.com/messages/t/61587387836258" 
+                  target="_blank" 
+                  class="contact-item">
+                  <div class="contact-item-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                      </svg>
+                  </div>
+                  <div class="contact-item-content">
+                      <div class="contact-item-label">Messenger</div>
+                      <div class="contact-item-value">Vista Land Cebu by APC Supremo</div>
+                  </div>
+              </a>
+          </div>
       </div>
-    </div>
+  </div>
+
+  <!-- EMAIL FORM MODAL -->
+  <div id="emailFormModal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h2>Send Us An Email</h2>
+              <button class="close-modal" onclick="closeModal('emailFormModal')">×</button>
+          </div>
+          <div class="modal-body">
+              <form id="emailInquiryForm" style="max-width: 100%;">
+                  <!-- Property Selection -->
+                  <div style="margin-bottom: 20px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Property Interest <span style="color: #e74c3c;">*</span>
+                      </label>
+                      <select id="emailPropertyType" onchange="updateEmailPropertySelection()" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;" required>
+                          <option value="">-- Select Property Type --</option>
+                          <option value="house-lot">House & Lot</option>
+                          <option value="lot-only" selected>Lot Only</option>
+                          <option value="condo">Condominium</option>
+                      </select>
+                  </div>
+
+                  <!-- Condo Sub-options -->
+                  <div id="emailCondoOptions" style="display: none; margin-bottom: 20px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Which Condominium? <span style="color: #e74c3c;">*</span>
+                      </label>
+                      <select id="emailCondoType" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; cursor: pointer;">
+                          <option value="">-- Select Condominium --</option>
+                          <option value="bria">Bria Flats</option>
+                          <option value="valencia">Valencia</option>
+                          <option value="jb-suarez">JB Suarez (116 Suarez)</option>
+                      </select>
+                  </div>
+
+                  <!-- Client Name -->
+                  <div style="margin-bottom: 20px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Your Name <span style="color: #e74c3c;">*</span>
+                      </label>
+                      <input type="text" id="clientName" placeholder="Juan Dela Cruz" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px;" required>
+                  </div>
+
+                  <!-- Client Phone -->
+                  <div style="margin-bottom: 20px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Phone Number <span style="color: #e74c3c;">*</span>
+                      </label>
+                      <input type="tel" id="clientPhone" placeholder="0999 123 4567" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px;" required>
+                  </div>
+
+                  <!-- Client Email -->
+                  <div style="margin-bottom: 20px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Your Email <span style="color: #e74c3c;">*</span>
+                      </label>
+                      <input type="email" id="clientEmail" placeholder="juandelacruz@gmail.com" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px;" required>
+                  </div>
+
+                  <!-- Additional Message (Optional) -->
+                  <div style="margin-bottom: 25px;">
+                      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333; font-size: 14px;">
+                          Additional Message (Optional)
+                      </label>
+                      <textarea id="clientMessage" placeholder="Any specific questions or requirements?" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; min-height: 80px; resize: vertical;"></textarea>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+                      Send Email
+                  </button>
+              </form>
+          </div>
+      </div>
   </div>
 
   <script>
-    // Modal Functions
-    function openModal() {
-      const modal = document.getElementById('contactModal');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('contactModal');
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      const modal = document.getElementById('contactModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    }
-
     // Scroll-triggered animations that re-animate on both scroll up and down
     const observerOptions = {
       threshold: 0.15,
@@ -1083,6 +1231,128 @@
           });
         }
       });
+    });
+
+    // Email Form Functions
+    function openEmailForm(e) {
+        e.preventDefault();
+        closeModal('contactModal');
+        openModal('emailFormModal');
+    }
+
+    function updateEmailPropertySelection() {
+        const propertyType = document.getElementById('emailPropertyType').value;
+        const condoOptions = document.getElementById('emailCondoOptions');
+        
+        if (propertyType === 'condo') {
+            condoOptions.style.display = 'block';
+            document.getElementById('emailCondoType').required = true;
+        } else {
+            condoOptions.style.display = 'none';
+            document.getElementById('emailCondoType').required = false;
+            document.getElementById('emailCondoType').value = '';
+        }
+    }
+
+    // Handle Email Form Submission
+    document.getElementById('emailInquiryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const propertyType = document.getElementById('emailPropertyType').value;
+        const condoType = document.getElementById('emailCondoType').value;
+        const clientName = document.getElementById('clientName').value;
+        const clientPhone = document.getElementById('clientPhone').value;
+        const clientEmail = document.getElementById('clientEmail').value;
+        const clientMessage = document.getElementById('clientMessage').value;
+        
+        // Build property description
+        let propertyDesc = '';
+        if (propertyType === 'house-lot') {
+            propertyDesc = 'House & Lot';
+        } else if (propertyType === 'lot-only') {
+            propertyDesc = 'Lot Only';
+        } else if (propertyType === 'condo') {
+            if (condoType === 'bria') {
+                propertyDesc = 'Bria Flats Condominium';
+            } else if (condoType === 'valencia') {
+                propertyDesc = 'Valencia Condominium';
+            } else if (condoType === 'jb-suarez') {
+                propertyDesc = 'JB Suarez (116 Suarez) Condominium';
+            } else {
+                propertyDesc = 'Condominium';
+            }
+        }
+        
+        // Build email subject and body
+        const subject = `Property Inquiry: ${propertyDesc}`;
+        const body = `Good day!
+
+I am interested in your ${propertyDesc} property.
+
+CLIENT INFORMATION:
+Name: ${clientName}
+Email: ${clientEmail}
+Phone: ${clientPhone}
+
+${clientMessage ? `MESSAGE:\n${clientMessage}\n` : ''}
+I would appreciate it if you could provide me with more details about this property, including pricing, payment terms, and availability.
+
+Looking forward to your response.
+
+Best regards,
+${clientName}`;
+
+        // Open email based on device
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const email = 'vistalandcebu@gmail.com';
+        
+        if (!isMobile) {
+            // Desktop: Open Gmail in new tab
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
+        } else {
+            // Mobile: Use mailto
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        // Close modal and reset form
+        closeModal('emailFormModal');
+        document.getElementById('emailInquiryForm').reset();
+    });
+
+    // Modal functions
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal.active').forEach(modal => {
+                closeModal(modal.id);
+            });
+        }
     });
   </script>
 
