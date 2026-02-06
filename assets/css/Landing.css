@@ -1526,7 +1526,12 @@ footer .fab.fa-facebook-f {
     color: white;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE REDESIGN ===== */
+
+
+/* ===== RESPONSIVE REDESIGN - NUCLEAR FIX ===== */
+
+/* ===== TABLETS & MEDIUM DEVICES (769px - 968px) ===== */
 @media (max-width: 968px) {
     nav ul {
         flex-wrap: wrap;
@@ -1551,6 +1556,7 @@ footer .fab.fa-facebook-f {
     }
 }
 
+/* ===== TABLETS (481px - 768px) ===== */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -1563,39 +1569,44 @@ footer .fab.fa-facebook-f {
     }
 
     .hero {
-        margin-top: 180px;
-        height: 70vh;
-        min-height: 500px;
+        margin-top: 160px;
+        height: auto;
+        min-height: 450px;
+        padding: 40px 0;
     }
 
     .hero-content {
-        padding: 40px 25px;
+        padding: 40px 20px;
     }
 
     .hero-title {
-        gap: 12px;
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 15px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     .logo-vista {
-        height: 100px;
+        height: 90px;
     }
 
     .logo-land {
-        height: 60px;
-        margin-top: 10px;
+        height: 50px;
+        margin-top: 0;
     }
 
     .hero p {
         font-size: 1.1rem;
-        margin: 20px 0;
+        margin: 25px 0;
+        text-align: center;
     }
 
     .btn {
-        margin: 30px 0;
+        margin: 30px auto 0;
+        display: block;
+        width: fit-content;
         padding: 14px 40px;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .supremo-hero-content h2 {
@@ -1621,6 +1632,7 @@ footer .fab.fa-facebook-f {
 
     .property-cards {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
 
     .content-wrapper {
@@ -1631,6 +1643,7 @@ footer .fab.fa-facebook-f {
     .row {
         flex-direction: column;
         gap: 15px;
+        text-align: center;
     }
 
     .row-1 h2 {
@@ -1670,44 +1683,883 @@ footer .fab.fa-facebook-f {
     }
 
     .video-container {
-        height: 250px;
+        height: 300px;
+        border-radius: 12px;
     }
 
     .video-container.playing {
-        height: 350px;
+        height: 400px;
     }
 }
 
+/* ===== MOBILE DEVICES (320px - 480px) - NUCLEAR FIX ===== */
 @media (max-width: 480px) {
+    /* ========== CRITICAL OVERFLOW FIX ========== */
+    html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Remove ALL pseudo-elements that might overflow */
+    .hero::before,
+    .about-supremo-section::before,
+    .property-types::before,
+    .video-section::before,
+    *::before,
+    *::after {
+        display: none !important;
+    }
+    
+    /* Force everything to fit */
+    * {
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force all sections to stay within viewport */
+    section,
+    .container,
+    .supremo-container,
+    .content-wrapper,
+    header,
+    nav,
+    footer,
+    .hero,
+    .about-supremo-section,
+    .property-types,
+    .make-move-section,
+    .video-section,
+    .about-section,
+    .contact-section,
+    .footer-content,
+    .about-content {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Global Typography */
+    html {
+        font-size: 14px !important;
+    }
+    
+    /* Header - Compact Mobile */
+    header {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 10px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    
+    .logo {
+        gap: 8px !important;
+    }
+
+    .logo img {
+        height: 42px !important;
+    }
+
+    .HeaderTitle {
+        font-size: 1.25rem !important;
+    }
+
+    nav {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    nav ul {
+        gap: 5px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    nav ul li a {
+        padding: 7px 11px !important;
+        font-size: 0.78rem !important;
+        border-radius: 6px !important;
+    }
+
+    /* Hero Section - SIDE BY SIDE LOGOS */
     .hero {
-        margin-top: 220px;
+        margin-top: 155px !important;
+        margin-left: 8px !important;
+        margin-right: 8px !important;
+        height: auto !important;
+        min-height: 380px !important;
+        border-radius: 10px !important;
+        padding: 25px 0 !important;
+        width: calc(100% - 16px) !important;
+        max-width: calc(100vw - 16px) !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero-content {
+        padding: 25px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .hero-title {
+        flex-direction: row !important; /* KEEP SIDE BY SIDE */
+        gap: 12px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 18px !important;
     }
 
     .logo-vista {
-        height: 80px;
+        height: 70px !important;
+        width: auto !important;
     }
 
     .logo-land {
-        height: 50px;
+        height: 40px !important;
+        width: auto !important;
+        margin-top: 0 !important;
+    }
+
+    .hero p {
+        font-size: 0.95rem !important;
+        margin: 0 !important;
+        text-align: center !important;
+        line-height: 1.4 !important;
+        padding: 0 8px !important;
+    }
+
+    .hero p br {
+        display: none !important;
+    }
+
+    .btn {
+        margin: 22px auto 0 !important;
+        padding: 11px 32px !important;
+        font-size: 0.95rem !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+
+    /* About Supremo - Refined */
+    .about-supremo-section {
+        padding: 40px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .supremo-container {
+        width: 100% !important;
+        padding: 0 2px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .supremo-hero {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 25px 15px !important;
+        border-radius: 12px !important;
+        margin-bottom: 30px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .supremo-hero-content h2 {
-        font-size: 2rem;
+        font-size: 1.75rem !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
     }
 
-    .about-text h2 {
-        font-size: 2rem;
+    .supremo-tagline {
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
+
+    .supremo-stats {
+        gap: 12px !important;
+    }
+
+    .stat-box {
+        padding: 16px !important;
+    }
+
+    .stat-number {
+        font-size: 1rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+
+    .supremo-grid {
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    .supremo-box {
+        padding: 25px 18px !important;
+        border-radius: 12px !important;
+    }
+
+    .box-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.5rem !important;
+        margin: 0 auto 15px !important;
+    }
+
+    .supremo-box h3 {
+        font-size: 1.4rem !important;
+        text-align: center !important;
+    }
+
+    .supremo-box p {
+        font-size: 0.95rem !important;
+        text-align: center !important;
+        line-height: 1.5 !important;
+    }
+
+    .why-choose-us {
+        padding: 28px 18px !important;
+    }
+
+    .why-choose-us h3 {
+        font-size: 1.6rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .benefits-list {
+        gap: 15px !important;
+    }
+
+    .benefit-item {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 16px !important;
+    }
+
+    .benefit-number {
+        font-size: 2rem !important;
+        min-width: 35px !important;
+    }
+
+    .benefit-text h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .benefit-text p {
+        font-size: 0.88rem !important;
+    }
+
+    .supremo-showcase {
+        height: 250px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+    }
+
+    .supremo-showcase img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .showcase-overlay {
+        width: 100% !important;
+    }
+
+    .showcase-overlay p {
+        font-size: 1.25rem !important;
+        padding: 20px !important;
+    }
+
+    .supremo-cta {
+        padding: 30px 20px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .cta-content h3 {
+        font-size: 1.6rem !important;
+    }
+
+    .cta-content p {
+        font-size: 1rem !important;
+    }
+
+    .btn-supremo {
+        padding: 13px 32px !important;
+        font-size: 1rem !important;
+    }
+
+    .fb-link {
+        padding: 11px 26px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* Property Types - Clean Layout */
+    .property-types {
+        padding: 40px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .container {
+        width: 100% !important;
+        padding: 0 2px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.65rem !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+
+    .section-subtitle {
+        font-size: 1rem !important;
+        text-align: center !important;
+        line-height: 1.4 !important;
+    }
+
+    .section-header {
+        margin-bottom: 30px !important;
+        width: 100% !important;
+    }
+
+    .property-cards {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    .card {
+        border-radius: 10px !important;
+        width: 100% !important;
+    }
+
+    .card-image {
+        height: 180px !important;
+        width: 100% !important;
+    }
+
+    .card-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .card h3 {
+        font-size: 1.35rem !important;
+        margin: 18px 0 8px !important;
+    }
+
+    .card p {
+        font-size: 0.95rem !important;
+        margin: 0 20px 20px !important;
+        line-height: 1.4 !important;
+    }
+
+    .btn-view {
+        padding: 11px 30px !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Make Your Move - Balanced */
+    .make-move-section {
+        padding: 35px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .content-wrapper {
+        flex-direction: column !important;
+        gap: 25px !important;
+        margin-top: 25px !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .image-side {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .image-side img {
+        border-radius: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .text-side {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .row {
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .row-1 h2 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .row-1 .first-paragraph {
+        font-size: 1rem !important;
+        margin-top: 10px !important;
+        line-height: 1.4 !important;
     }
 
     .row-2 h3 {
-        font-size: 2.5rem;
+        font-size: 2.1rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .row-2 h3::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 35% !important;
+    }
+
+    .row-2 .second-paragraph {
+        font-size: 1rem !important;
+        margin-top: 10px !important;
+        line-height: 1.4 !important;
+    }
+
+    .text-side .btn {
+        margin: 22px auto 0 !important;
+    }
+
+    /* Video Section - NOT SQUEEZED */
+    .video-section {
+        padding: 40px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .video-section .container {
+        width: 100% !important;
+        padding: 0 5px !important;
+    }
+
+    .video-section h2 {
+        font-size: 1.65rem !important;
+    }
+
+    .video-section .section-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 25px !important;
+        padding: 0 10px !important;
+    }
+
+    .video-container {
+        height: 190px !important;
+        border-radius: 10px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .video-container.playing {
+        height: 190px !important;
+    }
+
+    .video-container video {
+        border-radius: 10px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .play-button {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .play-button i {
+        font-size: 1.8rem !important;
+    }
+
+    /* About Vista Land - Clean */
+    .about-section {
+        padding: 40px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        width: 100% !important;
+    }
+
+    .about-text h2 {
+        font-size: 1.75rem !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+
+    .about-text h3 {
+        font-size: 1.35rem !important;
+        text-align: center !important;
+    }
+
+    .about-text p {
+        font-size: 0.95rem !important;
+        text-align: justify !important;
+        line-height: 1.5 !important;
+    }
+
+    .about-features {
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .feature-item {
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    .feature-icon {
+        font-size: 1.4rem !important;
+    }
+
+    .feature-text h4 {
+        font-size: 1.08rem !important;
+    }
+
+    .feature-text p {
+        font-size: 0.9rem !important;
+    }
+
+    .about-image {
+        width: 100% !important;
+    }
+
+    .about-image img {
+        border-radius: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Contact Section - Refined */
+    .contact-section {
+        padding: 40px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
     }
 
     .contact-section h2 {
-        font-size: 2.5rem;
+        font-size: 1.8rem !important;
+        margin-bottom: 35px !important;
+    }
+
+    .contact-methods {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .contact-card {
+        padding: 25px 18px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+    }
+
+    .contact-icon {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .contact-icon svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .contact-card h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .contact-card a {
+        font-size: 0.98rem !important;
+    }
+
+    /* Footer - Compact */
+    footer {
+        padding: 40px 12px 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        width: 100% !important;
+    }
+
+    .footer-section {
+        width: 100% !important;
+    }
+
+    .footer-logo img {
+        height: 50px !important;
+    }
+
+    .footer-logo-text .brand-name {
+        font-size: 1.5rem !important;
+    }
+
+    .footer-logo-text .tagline {
+        font-size: 0.82rem !important;
+    }
+
+    .footer-description {
+        font-size: 0.92rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .footer-section h3 {
+        font-size: 1.25rem !important;
+        margin-bottom: 18px !important;
+    }
+
+    .footer-section ul li {
+        font-size: 0.92rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .social-icon {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .footer-social .social-icon i {
+        font-size: 1.05rem !important;
+    }
+
+    .footer-bottom {
+        font-size: 0.82rem !important;
+        padding-top: 22px !important;
+        width: 100% !important;
+    }
+
+    /* Modals - Mobile Perfect */
+    .modal-content {
+        width: 90% !important;
+        max-width: 380px !important;
+        border-radius: 15px !important;
+    }
+
+    .modal-header {
+        padding: 22px 18px !important;
+        border-radius: 15px 15px 0 0 !important;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .close-modal {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1.6rem !important;
+        top: 18px !important;
+        right: 18px !important;
+    }
+
+    .modal-body {
+        padding: 25px 18px !important;
+    }
+
+    .contact-item {
+        padding: 16px !important;
+        gap: 14px !important;
+        border-radius: 10px !important;
+        margin-bottom: 13px !important;
+    }
+
+    .contact-item-icon {
+        width: 46px !important;
+        height: 46px !important;
+        border-radius: 8px !important;
+    }
+
+    .contact-item-icon svg {
+        width: 23px !important;
+        height: 23px !important;
+    }
+
+    .contact-item-label {
+        font-size: 0.78rem !important;
+    }
+
+    .contact-item-value {
+        font-size: 1rem !important;
+    }
+
+    .properties-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        width: 100% !important;
+    }
+
+    .property-item {
+        border-radius: 10px !important;
+        width: 100% !important;
+    }
+
+    .property-item:nth-child(3) {
+        grid-column: 1 !important;
+        max-width: 100% !important;
+    }
+
+    .property-item img {
+        height: 180px !important;
+        width: 100% !important;
+    }
+
+    .property-item-name {
+        font-size: 1.3rem !important;
+        padding: 32px 18px 16px !important;
+    }
+
+    .modal-footer {
+        padding: 0 18px 25px !important;
+    }
+
+    .inquire-btn {
+        padding: 13px !important;
+        font-size: 1rem !important;
+        border-radius: 25px !important;
+    }
+
+    /* Email Form */
+    #emailInquiryForm input,
+    #emailInquiryForm select,
+    #emailInquiryForm textarea {
+        font-size: 0.92rem !important;
+        padding: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    #emailInquiryForm button[type="submit"] {
+        font-size: 0.98rem !important;
+        padding: 12px !important;
+        width: 100% !important;
+    }
+
+    /* Privacy & Terms */
+    .modal-text-content {
+        width: 100% !important;
+    }
+
+    .modal-text-content h3 {
+        font-size: 1.25rem !important;
+        margin: 18px 0 10px !important;
+    }
+
+    .modal-text-content p,
+    .modal-text-content li {
+        font-size: 0.92rem !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* ===== EXTRA SMALL (320px - 360px) ===== */
+@media (max-width: 360px) {
+    html {
+        font-size: 13px !important;
+    }
+    
+    .logo img {
+        height: 38px !important;
+    }
+    
+    .HeaderTitle {
+        font-size: 1.15rem !important;
+    }
+    
+    nav ul li a {
+        padding: 6px 9px !important;
+        font-size: 0.72rem !important;
+    }
+    
+    .hero {
+        margin-top: 160px !important;
+        min-height: 360px !important;
+    }
+    
+    .logo-vista {
+        height: 62px !important;
+    }
+
+    .logo-land {
+        height: 36px !important;
+    }
+    
+    .hero p {
+        font-size: 0.9rem !important;
+    }
+    
+    .btn {
+        padding: 10px 28px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .supremo-hero-content h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .row-1 h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    .row-2 h3 {
+        font-size: 1.9rem !important;
+    }
+    
+    .video-container {
+        height: 175px !important;
+    }
+    
+    .video-container.playing {
+        height: 175px !important;
     }
 }
