@@ -383,17 +383,548 @@ body {
             transform: translateY(-2px);
         }
 
-        @media (max-width: 900px) {
-            .hero-single img {
-                max-width: 780px;
-            }
-        }
+       /* ===== RESPONSIVE ===== */
 
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-            .hero-single img {
-                max-width: 100%;
-            }
-        }
+/* Tablets and Medium Devices */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .container {
+    padding: 20px 15px !important;
+  }
+
+  .hero-single img {
+    max-width: 700px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px;
+  }
+}
+
+/* Small Tablets */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  header {
+    padding: 10px 20px !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .HeaderTitle {
+    font-size: 1.3rem;
+  }
+
+  .home-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .TitleMain {
+    margin-top: 80px;
+    padding: 30px 20px;
+  }
+
+  .TitleMain h1 {
+    font-size: 2rem;
+  }
+
+  .TitleMain p {
+    font-size: 1rem;
+  }
+
+  .section-label {
+    font-size: 1.3rem;
+    margin: 30px 0 15px;
+    padding: 0 15px;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    margin: -5px 0 40px;
+    padding: 0 15px;
+  }
+
+  .hero-single {
+    margin: 40px 0;
+  }
+
+  .hero-single img {
+    max-width: 100%;
+  }
+
+  /* 2-Column Gallery */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+    margin: 50px 0;
+  }
+
+  .enquire-btn-container {
+    margin: 70px 0 100px;
+  }
+
+  .enquire-btn {
+    padding: 16px 45px;
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+  }
+
+  .modal-header {
+    padding: 18px 20px;
+    font-size: 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  * {
+    max-width: 100% !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+  }
+
+  .container {
+    width: 100% !important;
+    padding: 15px 12px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  header {
+    padding: 8px 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .HeaderTitle {
+    font-size: 1rem;
+  }
+
+  .home-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .home-btn span {
+    display: none;
+  }
+
+  .TitleMain {
+    margin-top: 60px;
+    padding: 25px 15px;
+  }
+
+  .TitleMain h1 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .TitleMain p {
+    font-size: 0.9rem;
+  }
+
+  .section-label {
+    font-size: 1.1rem;
+    margin: 30px 0 12px;
+    padding: 0 12px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+    margin: -5px 0 35px;
+    padding: 0 12px !important;
+  }
+
+  .hero-single {
+    margin: 35px 0;
+    padding: 0 !important;
+  }
+
+  .hero-single img {
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 10px;
+  }
+
+  /* 2-Column Staggered Gallery */
+  .gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin: 40px 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .gallery-item {
+    border-radius: 8px;
+  }
+
+  .gallery-item:nth-child(1) {
+    transform: translateY(0);
+  }
+
+  .gallery-item:nth-child(2) {
+    transform: translateY(15px);
+  }
+
+  .gallery-item:nth-child(3) {
+    transform: translateY(8px);
+  }
+
+  .gallery-item:nth-child(4) {
+    transform: translateY(22px);
+  }
+
+  .gallery-item.animate {
+    opacity: 1;
+  }
+
+  .caption {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .enquire-btn-container {
+    margin: 60px 0 80px;
+    padding: 0 12px;
+  }
+
+  .enquire-btn {
+    padding: 14px 35px;
+    font-size: 1rem;
+    border-radius: 40px;
+  }
+
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 0 auto !important;
+  }
+
+  .modal-header {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .close-modal {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+
+  .modal-body {
+    padding: 18px;
+  }
+
+  .contact-item {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .contact-item-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-right: 12px;
+  }
+
+  .contact-item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-item-label {
+    font-size: 11px;
+  }
+
+  .contact-item-value {
+    font-size: 14px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .form-group textarea {
+    min-height: 70px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Extra Small Devices (360px and below) */
+@media (max-width: 360px) {
+  .TitleMain h1 {
+    font-size: 1.4rem;
+  }
+
+  .TitleMain p {
+    font-size: 0.85rem;
+  }
+
+  .section-label {
+    font-size: 1rem;
+    margin: 25px 0 10px;
+  }
+
+  .section-desc {
+    font-size: 0.85rem;
+    margin: -5px 0 30px;
+  }
+
+  .hero-single {
+    margin: 30px 0;
+  }
+
+  .hero-single img {
+    border-radius: 8px;
+  }
+
+  .gallery {
+    gap: 10px !important;
+    margin: 35px 0 !important;
+  }
+
+  .gallery-item {
+    border-radius: 6px;
+  }
+
+  .gallery-item:nth-child(2) {
+    transform: translateY(12px);
+  }
+
+  .gallery-item:nth-child(3) {
+    transform: translateY(6px);
+  }
+
+  .gallery-item:nth-child(4) {
+    transform: translateY(18px);
+  }
+
+  .caption {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .enquire-btn {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+
+  .contact-item {
+    padding: 10px;
+  }
+
+  .contact-item-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+}
+
+/* Very Small Devices (320px - Vivo Y20 size) */
+@media (max-width: 320px) {
+  header {
+    padding: 6px 12px !important;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .HeaderTitle {
+    font-size: 0.9rem;
+  }
+
+  .home-btn {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+
+  .TitleMain {
+    margin-top: 55px;
+    padding: 20px 12px;
+  }
+
+  .TitleMain h1 {
+    font-size: 1.25rem;
+  }
+
+  .TitleMain p {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 12px 10px !important;
+  }
+
+  .section-label {
+    font-size: 0.95rem;
+    margin: 22px 0 8px;
+    padding: 0 10px !important;
+  }
+
+  .section-desc {
+    font-size: 0.8rem;
+    margin: -5px 0 28px;
+    padding: 0 10px !important;
+  }
+
+  .hero-single {
+    margin: 28px 0;
+  }
+
+  .hero-single img {
+    border-radius: 6px;
+  }
+
+  .gallery {
+    gap: 8px !important;
+    margin: 30px 0 !important;
+  }
+
+  .gallery-item {
+    border-radius: 5px;
+  }
+
+  .gallery-item:nth-child(2) {
+    transform: translateY(10px);
+  }
+
+  .gallery-item:nth-child(3) {
+    transform: translateY(5px);
+  }
+
+  .gallery-item:nth-child(4) {
+    transform: translateY(15px);
+  }
+
+  .caption {
+    padding: 7px;
+    font-size: 0.75rem;
+  }
+
+  .enquire-btn-container {
+    margin: 50px 0 70px;
+    padding: 0 10px;
+  }
+
+  .enquire-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+
+  .modal-header {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+
+  .close-modal {
+    width: 28px;
+    height: 28px;
+    font-size: 22px;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .contact-item {
+    padding: 9px;
+    margin-bottom: 8px;
+  }
+
+  .contact-item-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    margin-right: 10px;
+  }
+
+  .contact-item-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-item-label {
+    font-size: 10px;
+  }
+
+  .contact-item-value {
+    font-size: 13px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .form-group textarea {
+    min-height: 65px;
+  }
+
+  .submit-btn {
+    padding: 11px;
+    font-size: 14px;
+  }
+}
