@@ -1529,7 +1529,99 @@ footer .fab.fa-facebook-f {
 /* ===== RESPONSIVE REDESIGN ===== */
 
 
-/* ===== RESPONSIVE REDESIGN - ENHANCED VISUAL LAYOUT ===== */
+
+
+/* ===== MEDIUM SCREENS (969px - 1100px)  ===== */
+@media (max-width: 1100px) {
+    .make-move-section {
+        padding: 60px 20px;
+    }
+
+    .content-wrapper {
+        gap: 35px;
+        padding: 0 15px;
+    }
+
+    .image-side {
+        min-width: 300px;
+        flex: 0.9;
+    }
+
+    .text-side {
+        min-width: 300px;
+        flex: 1.1;
+    }
+
+    .row-1 h2 {
+        font-size: 2.6rem;
+        line-height: 1.15;
+    }
+
+    .row-1 .first-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .row-2 h3 {
+        font-size: 3.8rem;
+        line-height: 1.1;
+    }
+
+    .row-2 .second-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .text-side .btn {
+        padding: 14px 40px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== ALTERNATIVE: Even smoother scaling for 1000px breakpoint ===== */
+@media (max-width: 1050px) {
+    .content-wrapper {
+        gap: 30px;
+    }
+
+    .image-side {
+        min-width: 280px;
+    }
+
+    .text-side {
+        min-width: 280px;
+    }
+
+    .row-1 h2 {
+        font-size: 2.4rem;
+    }
+
+    .row-2 h3 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .content-wrapper {
+        gap: 25px;
+    }
+
+    .row-1 h2 {
+        font-size: 2.2rem;
+    }
+
+    .row-1 .first-paragraph {
+        font-size: 1.05rem;
+    }
+
+    .row-2 h3 {
+        font-size: 3.2rem;
+    }
+
+    .row-2 .second-paragraph {
+        font-size: 1.05rem;
+    }
+}
 
 /* ===== TABLETS & MEDIUM DEVICES (769px - 968px) ===== */
 @media (max-width: 968px) {
@@ -1554,7 +1646,79 @@ footer .fab.fa-facebook-f {
     .benefits-list {
         grid-template-columns: 1fr;
     }
+
+    /* =====FOR MAKE YOUR MOVE SECTION (800px-968px) ===== */
+    .make-move-section {
+        padding: 50px 20px !important;
+    }
+
+    .content-wrapper {
+        flex-direction: column !important;
+        gap: 40px !important;
+        align-items: center !important;
+    }
+
+    .image-side {
+        width: 100% !important;
+        max-width: 600px !important;
+        min-width: auto !important;
+    }
+
+    .image-side img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .text-side {
+        width: 100% !important;
+        max-width: 600px !important;
+        min-width: auto !important;
+        text-align: center !important;
+    }
+
+    .row {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .row-1 h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .row-1 .first-paragraph {
+        font-size: 1.15rem !important;
+        text-align: center !important;
+    }
+
+    .row-2 h3 {
+        font-size: 3.5rem !important;
+        text-align: center !important;
+    }
+
+    .row-2 h3::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 40% !important;
+    }
+
+    .row-2 .second-paragraph {
+        font-size: 1.15rem !important;
+        text-align: center !important;
+    }
+
+    .text-side .btn {
+        margin: 30px auto 0 !important;
+        display: block !important;
+    }
+
+
 }
+
+
 
 /* ===== TABLETS (481px - 768px) ===== */
 @media (max-width: 768px) {
@@ -1635,9 +1799,23 @@ footer .fab.fa-facebook-f {
         gap: 25px;
     }
 
+     .make-move-section {
+        padding: 50px 20px !important;
+    }
+
     .content-wrapper {
-        flex-direction: column;
-        gap: 40px;
+        flex-direction: column !important;
+        gap: 35px !important;
+    }
+
+     .image-side {
+        width: 100% !important;
+        max-width: 550px !important;
+    }
+
+    .text-side {
+        width: 100% !important;
+        max-width: 550px !important;
     }
 
     .row {
